@@ -16,156 +16,155 @@ const roboto = Roboto({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className= {roboto.className}>
+      <body className={roboto.className}>
         <header className="w-full">
 
-      {/* ===== TOP DARK STRIP ===== */}
-      <div className="w-full flex content3">
-        {/* Left orange Facebook block */}
-        <div className="bg-[#e4322f] px-6 flex items-center justify-center text-white text-xl font-bold">
-          Ig
-        </div>
-
-        {/* Right ORANGE info strip */}
-        <div className="flex-1 bg-[#fbb040] text-white text-sm flex items-center justify-between px-4 md:px-10 gap-4">
-          {/* Phone left */}
-          <div className="flex items-center gap-2">
-            <span className="">+91-7760272525</span>
-          </div>
-
-          {/* Center: location */}
-          <div className="hidden md:flex items-center gap-2">
-            <span className="text-red-400">📍</span>
-            <span className="">Moodubidire Dakshina Kannada - 574227</span>
-          </div>
-
-          {/* Right: email */}
-          <div className="flex items-center gap-2">
-            <span className="text-red-400">✉</span>
-            <span>alvasphysicaledu@alvas.org</span>
-          </div>
-        </div>
-      </div>
-
-      {/* ===== MAIN HEADER ROW: LOGO + NAV + CALL BADGE ===== */}
-      <div className="w-full bg-white py-1.5 px-4 md:px-10 flex items-center justify-between gap-6">
-
-        {/* LEFT: LOGO + TITLE */}
-        <div className="flex items-center gap-7">
-          {/* Logo (keep your existing image path / props) */}
-          <Link href="/" className="cursor-pointer">
-            <Image src="/images/alvas-logo.png" width={65} height={70} alt="Alva's Logo" />
-          </Link>
-
-          <div className="leading-tight">
-            <div className=" md:text-l title tracking-wide text-lg">
-              Alva's College Of Physical Education
+          {/* ===== TOP DARK STRIP ===== */}
+          <div className="w-full flex content3">
+            {/* Left orange Facebook block */}
+            <div className="bg-[#e4322f] px-6 flex items-center justify-center text-white text-xl font-bold">
+              Ig
             </div>
-            <div className="content3">
-              A Unit of Alva's Education Foundation (R.) Moodbidri
-            </div>
-            <div className="text-xs content2 text-gray-600">
-              Recgonized by NCTE Delhi & Govt. of Karnataka
+
+            {/* Right ORANGE info strip */}
+            <div className="flex-1 bg-[#fbb040] text-white text-sm flex items-center justify-between px-4 md:px-10 gap-4">
+              {/* Phone left */}
+              <div className="flex items-center gap-2">
+                <span className="">+91-7760272525</span>
+              </div>
+
+              {/* Center: location */}
+              <div className="hidden md:flex items-center gap-2">
+                <span className="text-red-400">📍</span>
+                <span className="">Moodubidire Dakshina Kannada - 574227</span>
+              </div>
+
+              {/* Right: email */}
+              <div className="flex items-center gap-2">
+                <span className="text-red-400">✉</span>
+                <span>alvasphysicaledu@alvas.org</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* CENTER: NAVIGATION */}
-        <nav className="hidden lg:flex items-center gap-8 content3 text-lg text-gray-500">
-  {navRoutes.map((route) => {
-    const hasDropdown =
-      Array.isArray(route.dropdown) && route.dropdown.length > 0;
+          {/* ===== MAIN HEADER ROW: LOGO + NAV + CALL BADGE ===== */}
+          <div className="w-full bg-white py-1.5 px-4 md:px-10 flex items-center justify-between gap-6">
 
-    const dropdownItems = route.dropdown ?? [];
-    const length = dropdownItems.length;
+            {/* LEFT: LOGO + TITLE */}
+            <div className="flex items-center gap-7">
+              {/* Logo (keep your existing image path / props) */}
+              <Link href="/" className="cursor-pointer">
+                <Image src="/images/alvas-logo.png" width={65} height={70} alt="Alva's Logo" />
+              </Link>
 
-    const hasTwoColumns = length > 5;
-    const isBalancedTwoColumn = length > 5 && length <= 10; // 6–10 items → split equally
-
-    // if 6–10 items → split evenly
-    // if >10 items → first 5 left, rest right
-    const splitIndex = isBalancedTwoColumn
-      ? Math.ceil(length / 2)
-      : 5;
-
-    return (
-      <div key={route.id} className="relative group">
-        {/* Parent Link */}
-        <Link
-          href={route.path}
-          className="flex items-center gap-1 hover:text-orange-600 whitespace-nowrap"
-        >
-          {route.name}
-
-          {hasDropdown && (
-            <CaretDownIcon className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />
-          )}
-        </Link>
-
-        {/* Hover Buffer (prevents flicker) */}
-        {hasDropdown && (
-          <div className="absolute left-0 top-full w-full h-3 pointer-events-none" />
-        )}
-
-        {/* Dropdown */}
-        {hasDropdown && (
-          <div
-            className={`absolute left-0 top-full mt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-400 bg-white shadow-md rounded-md py-2 z-50 ${
-              hasTwoColumns ? "min-w-[460px]" : "min-w-[220px]"
-            }`}
-          >
-            {hasTwoColumns ? (
-              // 2-column layout
-              <div className="grid grid-cols-2">
-                {/* Left column */}
-                <div>
-                  {dropdownItems.slice(0, splitIndex).map((sub) => (
-                    <Link
-                      key={sub.id}
-                      href={sub.path}
-                      className="block px-9 py-3 hover:bg-gray-100 whitespace-nowrap"
-                    >
-                      {sub.name}
-                    </Link>
-                  ))}
+              <div className="leading-tight">
+                <div className=" md:text-l title tracking-wide text-lg">
+                  Alva's College Of Physical Education
                 </div>
-
-                {/* Right column */}
-                <div>
-                  {dropdownItems.slice(splitIndex).map((sub) => (
-                    <Link
-                      key={sub.id}
-                      href={sub.path}
-                      className="block px-9 py-3 hover:bg-gray-100 "
-                    >
-                      {sub.name}
-                    </Link>
-                  ))}
+                <div className="content3">
+                  A Unit of Alva's Education Foundation (R.) Moodbidri
+                </div>
+                <div className="text-xs content2 text-gray-600">
+                  Recgonized by NCTE Delhi & Govt. of Karnataka
                 </div>
               </div>
-            ) : (
-              // normal single-column layout (≤ 5 items)
-              dropdownItems.map((sub) => (
-                <Link
-                  key={sub.id}
-                  href={sub.path}
-                  className="block px-9 py-3 hover:bg-gray-100 whitespace-nowrap"
-                >
-                  {sub.name}
-                </Link>
-              ))
-            )}
+            </div>
+
+            {/* CENTER: NAVIGATION */}
+            <nav className="hidden lg:flex items-center gap-8 content3 text-lg text-gray-500">
+              {navRoutes.map((route) => {
+                const hasDropdown =
+                  Array.isArray(route.dropdown) && route.dropdown.length > 0;
+
+                const dropdownItems = route.dropdown ?? [];
+                const length = dropdownItems.length;
+
+                const hasTwoColumns = length > 5;
+                const isBalancedTwoColumn = length > 5 && length <= 10; // 6–10 items → split equally
+
+                // if 6–10 items → split evenly
+                // if >10 items → first 5 left, rest right
+                const splitIndex = isBalancedTwoColumn
+                  ? Math.ceil(length / 2)
+                  : 5;
+
+                return (
+                  <div key={route.id} className="relative group">
+                    {/* Parent Link */}
+                    <Link
+                      href={route.path}
+                      className="flex items-center gap-1 hover:text-orange-600 whitespace-nowrap"
+                    >
+                      {route.name}
+
+                      {hasDropdown && (
+                        <CaretDownIcon className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />
+                      )}
+                    </Link>
+
+                    {/* Hover Buffer (prevents flicker) */}
+                    {hasDropdown && (
+                      <div className="absolute left-0 top-full w-full h-3 pointer-events-none" />
+                    )}
+
+                    {/* Dropdown */}
+                    {hasDropdown && (
+                      <div
+                        className={`absolute left-0 top-full mt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-400 bg-white shadow-md rounded-md py-2 z-50 ${hasTwoColumns ? "min-w-[460px]" : "min-w-[220px]"
+                          }`}
+                      >
+                        {hasTwoColumns ? (
+                          // 2-column layout
+                          <div className="grid grid-cols-2">
+                            {/* Left column */}
+                            <div>
+                              {dropdownItems.slice(0, splitIndex).map((sub) => (
+                                <Link
+                                  key={sub.id}
+                                  href={sub.path}
+                                  className="block px-9 py-3 hover:bg-gray-100 whitespace-nowrap"
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+
+                            {/* Right column */}
+                            <div>
+                              {dropdownItems.slice(splitIndex).map((sub) => (
+                                <Link
+                                  key={sub.id}
+                                  href={sub.path}
+                                  className="block px-9 py-3 hover:bg-gray-100 "
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          // normal single-column layout (≤ 5 items)
+                          dropdownItems.map((sub) => (
+                            <Link
+                              key={sub.id}
+                              href={sub.path}
+                              className="block px-9 py-3 hover:bg-gray-100 whitespace-nowrap"
+                            >
+                              {sub.name}
+                            </Link>
+                          ))
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </nav>
+
+
+
           </div>
-        )}
-      </div>
-    );
-  })}
-</nav>
-
-
-
-      </div>
-    </header>
+        </header>
 
         {/* College Picture */}
         <main className="">
@@ -176,7 +175,7 @@ export default function RootLayout({ children }) {
               <Image src="/images/hero-section.png" width={1920} height={800} alt="Campus" className="w-full h-auto" priority />
             </div>
 
-      {/* Enquiry strip overlay */}
+            {/* Enquiry strip overlay */}
             <div className="absolute left-0 -bottom-10  w-[92%] md:w-[85%] bg-white/95 rounded-r-full p-4 flex items-center justify-between shadow-lg border">
               <div>
                 <h3 className="font-semibold">Enquiry</h3>
@@ -263,7 +262,7 @@ export default function RootLayout({ children }) {
 
           </div>
         </footer>
-        
+
       </body>
     </html>
   );
