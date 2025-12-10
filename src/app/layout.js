@@ -167,7 +167,7 @@ export default function RootLayout({ children }) {
         </header>
 
         {/* College Picture */}
-        <main className="">
+        
           <section className="relative mt-1">
 
             {/* Hero image wrapper – full width, not shrunken */}
@@ -191,8 +191,10 @@ export default function RootLayout({ children }) {
             </div>
 
           </section>
+          <main className="">
+          {children}
         </main>
-        {children}
+        
         {/* FOOTER SECTION */}
         <footer className="w-full bg-[#1e1919] text-white py-12">
           <div className="max-w-7xl mx-auto px-6">

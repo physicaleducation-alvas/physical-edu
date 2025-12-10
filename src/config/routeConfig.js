@@ -8,6 +8,28 @@ export const navRoutes = [
         name: 'AEF',
         path: '/about/aef',
         id: 'aef',
+        dropdown: [
+          {
+            name: 'About AEF',
+            path: '/about/aef/about-aef',
+            id:'about-aef',
+          },
+          {
+            name: 'Colleges List',
+            path: '/about/aef/colleges-list',
+            id: 'colleges-list',
+          },
+          {
+            name: 'Cultural Events',
+            path: '/about/aef/cultural-events',
+            id: 'cultural-events',
+          },
+          {
+            name: 'Sports',
+            path:'/about/aef/sports',
+            id: 'sports'
+          }
+        ]
       },
       {
         name: 'About College',
