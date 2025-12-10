@@ -403,7 +403,7 @@ export default function RootLayout({ children }) {
         </header>
 
         {/* College Picture */}
-        <main className="">
+        
           <section className="relative mt-1">
 
             {/* Hero image wrapper – full width, not shrunken */}
@@ -425,8 +425,10 @@ export default function RootLayout({ children }) {
             </div>
 
           </section>
+          <main className="">
+          {children}
         </main>
-        {children}
+        
         {/* FOOTER SECTION */}
         <Footer />
 
