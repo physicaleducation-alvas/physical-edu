@@ -178,6 +178,18 @@ export const navRoutes = [
     name: 'Campus Life',
     path: '/campus-life',
     id: 'campus-life',
+    dropdown: [
+      {
+        name: 'Achievements',
+        path: '/campus-life/achievements',
+        id: 'achievements',
+      },
+      {
+        name: 'Celebrations',
+        path: '/campus-life/celebrations',
+        id: 'celebrations'
+      }
+    ]
   },
   {
     name: 'Contact',
