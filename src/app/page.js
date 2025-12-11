@@ -5,6 +5,7 @@ import SupportOrganizationsCarousel from "@/components/supportOrganizations";
 import { useEffect, useRef } from "react";
 import CampusInsights from "@/components/campusInsights";
 import Link from "next/link";
+import AchievementsSlider from "@/components/achievements";
 
 
 export default function SchoolsHeader() {
@@ -58,7 +59,7 @@ export default function SchoolsHeader() {
         </div>
       </section>
       <FocusCardsDemo />
-      <HeroSlider />
+      <AchievementsCarousel />
       <CampusInsights />
       <SupportOrganizationsCarousel />
     </>

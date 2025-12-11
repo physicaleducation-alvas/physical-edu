@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
-export default function HeroSlider() {
+export default function AchievementsCarousel() {
   const IMAGES = [
     "/images/Achievements.png",
     "/images/campus1.jpg",
@@ -44,18 +44,17 @@ export default function HeroSlider() {
 
   return (
     <div className="">
-      <div className="py-7 text-center text-3xl font-semibold md:py-7">
-        Achievements <div className="mx-auto mt-2 w-5 h-2 bg-[#e4322f] rounded-full" />
+      <div className="py-7 text-center text-3xl subtitle2 font-semibold md:py-7">
+        Achievements <div className="mx-auto mt-2 w-25 h-2 bg-[#e4322f]  rounded-full" />
       </div>
-      
+
 
       {/* SLIDER */}
       <div className="relative w-full overflow-hidden shadow-lg">
         <div
           ref={slideRef}
-          className={`flex ${
-            transition ? "transition-transform duration-700 ease-in-out" : ""
-          }`}
+          className={`flex ${transition ? "transition-transform duration-700 ease-in-out" : ""
+            }`}
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {images.map((src, i) => (
