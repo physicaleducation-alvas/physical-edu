@@ -1,11 +1,10 @@
 "use client";
-import HeroSlider from "@/components/achievements";
 import { FocusCardsDemo } from "@/components/focusCards";
 import SupportOrganizationsCarousel from "@/components/supportOrganizations";
 import { useEffect, useRef } from "react";
 import CampusInsights from "@/components/campusInsights";
 import Link from "next/link";
-import AchievementsSlider from "@/components/achievements";
+import AchievementsCarousel from "@/components/achievements";
 
 
 export default function SchoolsHeader() {
