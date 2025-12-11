@@ -176,19 +176,24 @@ export default function RootLayout({ children }) {
             </div>
 
             {/* Enquiry strip overlay */}
-            <div className="absolute left-0 -bottom-10  w-[92%] md:w-[85%] bg-white/95 rounded-r-full p-4 flex items-center justify-between shadow-lg border">
-              <div>
-                <h3 className="font-semibold">Enquiry</h3>
-              </div>
-              <div className="text-center">
-                <div className="text-xs text-gray-500">Contact Number</div>
-                <div className="font-bold text-red-600">88888-99999-00000</div>
-              </div>
-              <div className="text-right">
-                <div className="text-xs text-gray-500">Email ID</div>
-                <div className="font-semibold text-red-600">info@alvas.org</div>
-              </div>
-            </div>
+            
+            <div className="absolute left-0 -bottom-6 h-[25%] w-[88%] md:w-[88%] md:h-[10%] bg-white/95 rounded-r-full 
+                p-2 flex items-center justify-between shadow-md border">
+  <div>
+    <h3 className="font-semibold text-sm">Enquiry</h3>
+  </div>
+
+  <div className="text-center">
+    <div className="text-[10px] text-gray-500">Contact Number</div>
+    <div className="font-bold text-red-600 text-xs">88888-99999</div>
+  </div>
+
+  <div className="text-right">
+    <div className="text-[10px] text-gray-500">Email ID</div>
+    <div className="font-semibold text-red-600 text-xs">info@alvas.org</div>
+  </div>
+</div>
+
 
           </section>
         </main>
