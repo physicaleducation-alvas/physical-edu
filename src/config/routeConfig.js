@@ -18,11 +18,29 @@ export const navRoutes = [
         name: 'Chairman Message',
         path: '/about/chairman-message',
         id: 'chairman-message',
+        type: 'rich-card',
+        image: '/images/chairman.png',
+        name: 'Dr. Mohan Alva',
+        qualification: `Master's`,
+        description: 'Our chairman shares our long-term vision and values.',
+        button: {
+          label: 'Know more',
+          href: '/about/chairman-message'
+        }
       },
       {
         name: 'Principal Message',
         path: '/about/principal-message',
         id: 'principal-message',
+        type: 'rich-card',
+        name: 'Dr. ',
+        qualification: `Master's`,
+        image: '/images/principal.png',
+        description: 'A message from our principal to students and faculty.',
+        button: {
+          label: 'Know more',
+          href: '/about/principal-message'
+        }
       },
     ],
   },

@@ -1,9 +1,12 @@
+"use client";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import { navRoutes } from "@/config/routeConfig";
 import CaretDownIcon from "@/components/caretDownIcon";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 const roboto = Roboto({
@@ -12,8 +15,18 @@ const roboto = Roboto({
   variable: "--font-roboto"
 });
 
+const transition = {
+  type: "spring",
+  mass: 0.5,
+  damping: 11.5,
+  stiffness: 100,
+  restDelta: 0.001,
+  restSpeed: 0.001,
+};
 
 export default function RootLayout({ children }) {
+
+  const [activeMenu, setActiveMenu] = useState(null);
   return (
     <html lang="en">
       <body className={roboto.className}>
@@ -71,91 +84,178 @@ export default function RootLayout({ children }) {
             </div>
 
             {/* CENTER: NAVIGATION */}
-            <nav className="hidden lg:flex items-center gap-8 content3 text-lg text-gray-500">
+            <nav
+              className="flex items-center gap-8 text-lg text-gray-600"
+              onMouseLeave={() => setActiveMenu(null)}
+            >
               {navRoutes.map((route) => {
-                const hasDropdown =
-                  Array.isArray(route.dropdown) && route.dropdown.length > 0;
-
+                const hasDropdown = Array.isArray(route.dropdown) && route.dropdown.length > 0;
                 const dropdownItems = route.dropdown ?? [];
-                const length = dropdownItems.length;
 
-                const hasTwoColumns = length > 5;
-                const isBalancedTwoColumn = length > 5 && length <= 10; // 6–10 items → split equally
-
-                // if 6–10 items → split evenly
-                // if >10 items → first 5 left, rest right
-                const splitIndex = isBalancedTwoColumn
-                  ? Math.ceil(length / 2)
-                  : 5;
+                const normalItems = dropdownItems.filter((it) => it.type !== "rich-card");
+                const richItems = dropdownItems.filter((it) => it.type === "rich-card");
+                const hasRichItems = richItems.length > 0;
 
                 return (
-                  <div key={route.id} className="relative group">
+                  <div
+                    key={route.id}
+                    className="relative"
+                    onMouseEnter={() => hasDropdown && setActiveMenu(route.id)}
+                  >
                     {/* Parent Link */}
                     <Link
                       href={route.path}
                       className="flex items-center gap-1 hover:text-orange-600 whitespace-nowrap"
                     >
                       {route.name}
-
                       {hasDropdown && (
-                        <CaretDownIcon className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />
+                        <CaretDownIcon className="w-3 h-3 transition-transform duration-200"
+                          style={{ transform: activeMenu === route.id ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                        />
                       )}
                     </Link>
 
-                    {/* Hover Buffer (prevents flicker) */}
+                    {/* Hover Buffer */}
                     {hasDropdown && (
                       <div className="absolute left-0 top-full w-full h-3 pointer-events-none" />
                     )}
 
-                    {/* Dropdown */}
-                    {hasDropdown && (
-                      <div
-                        className={`absolute left-0 top-full mt-3 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-400 bg-white shadow-md rounded-md py-2 z-50 ${hasTwoColumns ? "min-w-[460px]" : "min-w-[220px]"
-                          }`}
-                      >
-                        {hasTwoColumns ? (
-                          // 2-column layout
-                          <div className="grid grid-cols-2">
-                            {/* Left column */}
-                            <div>
-                              {dropdownItems.slice(0, splitIndex).map((sub) => (
-                                <Link
-                                  key={sub.id}
-                                  href={sub.path}
-                                  className="block px-9 py-3 hover:bg-gray-100 whitespace-nowrap"
-                                >
-                                  {sub.name}
-                                </Link>
-                              ))}
-                            </div>
+                    {/* Dropdown with Animation */}
+                    <AnimatePresence>
+                      {hasDropdown && activeMenu === route.id && (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.85, y: 10 }}
+                          animate={{ opacity: 1, scale: 1, y: 0 }}
+                          exit={{ opacity: 0, scale: 0.85, y: 10 }}
+                          transition={transition}
+                          className={`absolute left-0 top-full mt-3 bg-white shadow-lg rounded-lg py-4 z-50 ${hasRichItems ? "min-w-[700px]" : normalItems.length > 5 ? "min-w-[460px]" : "min-w-[220px]"
+                            }`}
+                        >
+                          {hasRichItems ? (
+                            // Layout: Normal links on left, Rich cards on right
+                            <div className="grid grid-cols-[220px_1fr] gap-6">
+                              {/* Left Column: Normal Links */}
+                              <div className="flex flex-col">
+                                {normalItems.map((sub) => (
+                                  <Link
+                                    key={sub.id}
+                                    href={sub.path}
+                                    className="px-6 py-3 hover:bg-gray-50 rounded-md text-gray-700 hover:text-orange-600 transition-colors"
+                                  >
+                                    {sub.name}
+                                  </Link>
+                                ))}
+                              </div>
 
-                            {/* Right column */}
-                            <div>
-                              {dropdownItems.slice(splitIndex).map((sub) => (
-                                <Link
-                                  key={sub.id}
-                                  href={sub.path}
-                                  className="block px-9 py-3 hover:bg-gray-100 "
-                                >
-                                  {sub.name}
-                                </Link>
-                              ))}
+                              {/* Right Column: Rich Cards */}
+                              <div className="border-l border-gray-200 pl-6 pr-4">
+                                <div className="grid grid-cols-2 gap-6">
+                                  {richItems.map((sub) => (
+                                    <div key={sub.id} className="flex flex-col">
+                                      {/* Section Title */}
+                                      {sub.title && (
+                                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                                          {sub.title}
+                                        </h3>
+                                      )}
+
+                                      {/* Image */}
+                                      {sub.image ? (
+                                        <img
+                                          src={sub.image}
+                                          alt={sub.name ?? sub.title ?? ""}
+                                          className="w-full h-[140px] object-cover rounded-lg mb-3"
+                                        />
+                                      ) : (
+                                        <div className="w-full h-[140px] bg-gray-100 rounded-lg mb-3" />
+                                      )}
+
+                                      {/* Name */}
+                                      {sub.name && (
+                                        <div className="text-base font-semibold text-gray-900 mb-1">
+                                          {sub.name}
+                                        </div>
+                                      )}
+
+                                      {/* Qualification */}
+                                      {sub.qualification && (
+                                        <div className="text-xs text-gray-500 mb-2">
+                                          {sub.qualification}
+                                        </div>
+                                      )}
+
+                                      {/* Description */}
+                                      {sub.description && (
+                                        <p className="text-gray-600 text-xs leading-relaxed mb-3 line-clamp-3">
+                                          {sub.description}
+                                        </p>
+                                      )}
+
+                                      {/* Button */}
+                                      {sub.button?.href && sub.button?.label && (
+                                        <Link
+                                          href={sub.button.href}
+                                          className="inline-block px-3 py-1.5 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 text-xs w-fit transition-colors"
+                                        >
+                                          {sub.button.label}
+                                        </Link>
+                                      )}
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        ) : (
-                          // normal single-column layout (≤ 5 items)
-                          dropdownItems.map((sub) => (
-                            <Link
-                              key={sub.id}
-                              href={sub.path}
-                              className="block px-9 py-3 hover:bg-gray-100 whitespace-nowrap"
-                            >
-                              {sub.name}
-                            </Link>
-                          ))
-                        )}
-                      </div>
-                    )}
+                          ) : (
+                            // Standard dropdown without rich cards - with two column support
+                            (() => {
+                              const normalLength = normalItems.length;
+                              const normalHasTwoCols = normalLength > 5;
+                              const normalIsBalanced = normalLength > 5 && normalLength <= 10;
+                              const normalSplitIndex = normalIsBalanced ? Math.ceil(normalLength / 2) : 5;
+
+                              return normalHasTwoCols ? (
+                                <div className="grid grid-cols-[220px_auto] gap-6 px-4">
+                                  <div>
+                                    {normalItems.slice(0, normalSplitIndex).map((sub) => (
+                                      <Link
+                                        key={sub.id}
+                                        href={sub.path}
+                                        className="block px-9 py-3 hover:bg-gray-100 whitespace-nowrap"
+                                      >
+                                        {sub.name}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                  <div>
+                                    {normalItems.slice(normalSplitIndex).map((sub) => (
+                                      <Link
+                                        key={sub.id}
+                                        href={sub.path}
+                                        className="block px-9 py-3 hover:bg-gray-100 whitespace-nowrap"
+                                      >
+                                        {sub.name}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              ) : (
+                                <div>
+                                  {normalItems.map((sub) => (
+                                    <Link
+                                      key={sub.id}
+                                      href={sub.path}
+                                      className="block px-6 py-3 hover:bg-gray-50 rounded-md text-gray-700 hover:text-orange-600 transition-colors"
+                                    >
+                                      {sub.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              );
+                            })()
+                          )}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 );
               })}
