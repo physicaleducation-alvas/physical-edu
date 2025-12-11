@@ -1,10 +1,10 @@
 "use client";
-import HeroSlider from "@/components/achievements";
 import { FocusCardsDemo } from "@/components/focusCards";
 import SupportOrganizationsCarousel from "@/components/supportOrganizations";
 import { useEffect, useRef } from "react";
 import CampusInsights from "@/components/campusInsights";
 import Link from "next/link";
+import AchievementsCarousel from "@/components/achievements";
 
 
 export default function SchoolsHeader() {
@@ -63,7 +63,7 @@ export default function SchoolsHeader() {
 </section>
 
       <FocusCardsDemo />
-      <HeroSlider />
+      <AchievementsCarousel />
       <CampusInsights />
       <SupportOrganizationsCarousel />
     </>
