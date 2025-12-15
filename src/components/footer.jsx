@@ -60,8 +60,8 @@ export default function Footer() {
                         <div className="flex-1">
                             <h3 className="text-xl font-bold mb-4">About</h3>
                             <ul className="space-y-2 text-sm">
-                                <li><a href="#" className="hover:text-gray-300">College</a></li>
-                                <li><a href="#" className="hover:text-gray-300">Management</a></li>
+                                <li><a href="/college" className="hover:text-gray-300">College</a></li>
+                                <li><a href="/activities" className="hover:text-gray-300">Activities</a></li>
                             </ul>
                         </div>
 

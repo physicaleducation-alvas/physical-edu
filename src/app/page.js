@@ -46,7 +46,7 @@ export default function SchoolsHeader() {
             <Link href="/notice-board">
               <div
                 ref={scrollRef}
-                className="flex-1 overflow-x-hidden whitespace-nowrap text-red-600 text-base py-3 pl-6"
+                className="flex-1 overflow-x-hidden rounded whitespace-nowrap text-red-600 text-base py-3 pl-6"
               >
                 <span className="inline-block subtitle1">
                   CLICK HERE !!!! - AIET Alumni Association Registration 2025-26 •

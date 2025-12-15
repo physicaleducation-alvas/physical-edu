@@ -407,10 +407,6 @@ export default function RootLayout({ children }) {
           <section className="relative mt-1">
 
             {/* Hero image wrapper – full width, not shrunken */}
-            {/* <div className="overflow-hidden shadow">
-              <Image src="/images/hero-section.png" width={1920} height={800} alt="Campus" className="w-full h-auto" priority />
-            </div> */}
-
             <HeroCarousel />
 
             {/* Enquiry strip overlay */}
