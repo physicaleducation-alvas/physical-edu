@@ -37,7 +37,7 @@ export default function SchoolsHeader() {
           <div className="flex items-center w-full overflow-hidden">
 
             {/* Left Red Box */}
-            <div className="bg-[#e3342f] text-white px-4 py-3 flex items-center gap-3 font-semibold text-lg">
+            <div className="bg-[#e3342f] text-white px-4 py-3 content3 flex items-center gap-3 font-semibold text-lg">
               Notice Board
               <span className="text-white text-xl">📣</span>
             </div>
@@ -46,9 +46,9 @@ export default function SchoolsHeader() {
             <Link href="/notice-board">
               <div
                 ref={scrollRef}
-                className="flex-1 overflow-x-hidden whitespace-nowrap text-red-600 text-lg py-3 pl-6"
+                className="flex-1 overflow-x-hidden whitespace-nowrap text-red-600 text-base py-3 pl-6"
               >
-                <span className="inline-block">
+                <span className="inline-block subtitle1">
                   CLICK HERE !!!! - AIET Alumni Association Registration 2025-26 •
                   New Updates Coming Soon
                 </span>

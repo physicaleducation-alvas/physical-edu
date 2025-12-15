@@ -18,7 +18,7 @@ export default function SupportOrganizationsCarousel() {
     <section className="w-full py-12">
       {/* Title */}
       <div className="text-center mb-6">
-        <h2 className="text-3xl font-bold text-gray-900">
+        <h2 className="text-3xl font-bold title text-gray-900">
           Support Organizations
         </h2>
         <div className="mx-auto mt-2 w-45 h-2 bg-[#e4322f] rounded-full" />
@@ -26,7 +26,7 @@ export default function SupportOrganizationsCarousel() {
 
       {/* Continuous scrolling strip */}
       <div className="w-full bg-[#fdf8f0] py-8 border rounded-md overflow-hidden">
-        <div className="flex items-center gap-10 animate-marquee-scroll">
+        <div className="flex items-center gap-15 md:gap-5 animate-marquee-scroll">
           {/* First set of logos */}
           {logos.map((src, i) => (
             <div
@@ -37,7 +37,7 @@ export default function SupportOrganizationsCarousel() {
                 src={src}
                 alt={`Support organization ${i + 1}`}
                 fill
-                className="object-contain"
+                className="object-contain content3"
               />
             </div>
           ))}
@@ -51,7 +51,7 @@ export default function SupportOrganizationsCarousel() {
                 src={src}
                 alt={`Support organization ${i + 1}`}
                 fill
-                className="object-contain"
+                className="object-contain content3"
               />
             </div>
           ))}

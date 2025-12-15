@@ -44,7 +44,7 @@ export default function AchievementsCarousel() {
 
   return (
     <div className="">
-      <div className="py-7 text-center text-3xl subtitle2 font-semibold md:py-7">
+      <div className="py-7 text-center text-3xl title font-semibold md:py-7">
         Achievements <div className="mx-auto mt-2 w-25 h-2 bg-[#e4322f]  rounded-full" />
       </div>
 
