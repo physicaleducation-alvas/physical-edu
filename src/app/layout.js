@@ -9,6 +9,7 @@ import { HamburgerMenuIcon, Cross1Icon } from '@radix-ui/react-icons';
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "@/components/footer";
+import HeroCarousel from "@/components/heroCarousel";
 
 
 const roboto = Roboto({
@@ -406,9 +407,11 @@ export default function RootLayout({ children }) {
           <section className="relative mt-1">
 
             {/* Hero image wrapper – full width, not shrunken */}
-            <div className="overflow-hidden shadow">
+            {/* <div className="overflow-hidden shadow">
               <Image src="/images/hero-section.png" width={1920} height={800} alt="Campus" className="w-full h-auto" priority />
-            </div>
+            </div> */}
+
+            <HeroCarousel />
 
             {/* Enquiry strip overlay */}
             <div className="absolute left-0 -bottom-10  w-[92%] md:w-[85%] bg-white/95 rounded-r-full p-4 flex items-center justify-between shadow-lg border">
