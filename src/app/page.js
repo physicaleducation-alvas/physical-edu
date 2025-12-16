@@ -37,7 +37,7 @@ export default function SchoolsHeader() {
           <div className="flex items-center w-full overflow-hidden">
 
             {/* Left Red Box */}
-            <div className="bg-[#e3342f] text-white px-4 py-3 content3 flex items-center gap-3 font-semibold text-lg">
+            <div className="bg-[#e3342f] rounded-3xl text-white px-4 py-3 content3 flex items-center gap-3 font-semibold text-lg">
               Notice Board
               <span className="text-white text-xl">📣</span>
             </div>
