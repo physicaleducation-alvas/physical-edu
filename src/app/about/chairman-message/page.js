@@ -4,16 +4,18 @@ export default function ChairmanMessage() {
         <div className="p-5"></div>
 
       {/* Heading */}
+      <div className="flex justify-center">
       <h1 className="text-3xl font-bold text-red-600 mb-6 text-left">
         Chairman Message
       </h1>
+      </div>
 
       {/* Image */}
       <div className="w-full flex justify-center mb-6">
         <img 
-          src="c:\Users\prajw\Downloads\Picture1.jpg" 
+          src="/images/mohan-alva.jpg" 
           alt="Chairman" 
-          className="w-56 h-auto rounded-lg shadow-md"
+          className="md:w-[40%] h-auto rounded-lg shadow-md"
         />
       </div>
 
