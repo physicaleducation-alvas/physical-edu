@@ -19,7 +19,7 @@ export const navRoutes = [
         path: '/about/chairman-message',
         id: 'chairman-message',
         type: 'rich-card',
-        image: '/images/chairman.png',
+        image: '/images/mohan-alva.jpg',
         name: 'Dr. Mohan Alva',
         qualification: `Master's`,
         description: 'Our chairman shares our long-term vision and values.',
