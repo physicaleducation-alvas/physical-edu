@@ -9,7 +9,7 @@ export default function SportsInfo() {
 
       {/* Paragraph 1 */}
       <p className="mb-4">
-        Alva’s Education Foundation has initiated Ekalavya Sports Club 25 years back to support
+        Alva's Education Foundation has initiated Ekalavya Sports Club 25 years back to support
         meritorious sports students by providing them excellent coaching along with free education
         and boarding. It has proved fruitful with athletes and players earning international medals
         and recognition, continuously winning championships for the universities they represent.
@@ -18,8 +18,8 @@ export default function SportsInfo() {
       {/* Paragraph 2 */}
       <p className="mb-4">
         <span className="font-bold">Sports Vision Of our Foundation:</span><br />
-        Dr. M. Mohan Alva, Chairman of Alva’s Education Foundation, is a keen sports lover and promoter.
-        With a vision to encourage sports, he started the Alva’s Ekalavya Club in 1985. Students were
+        Dr. M. Mohan Alva, Chairman of Alva's Education Foundation, is a keen sports lover and promoter.
+        With a vision to encourage sports, he started the Alva's Ekalavya Club in 1985. Students were
         given free education and coaching. As the foundation grew, a permanent sports hostel was
         established, and since 1995, more than 3000 students have received free education and coaching
         under the sports quota in various disciplines. Qualified coaches provide special training.
@@ -60,7 +60,7 @@ export default function SportsInfo() {
 
       {/* Paragraph 5 */}
       <p className="mb-4">
-        In the academic year 2014–15, around 750 students were adopted under the Sports Quota.
+        In the academic year 2014-15, around 750 students were adopted under the Sports Quota.
         Apart from Sports Quota, there is Cultural Quota and Education Quota, where the total number
         of adopted students across all three divisions is around 3000 in the current academic year.
       </p>
