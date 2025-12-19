@@ -1,8 +1,8 @@
-export default function libraryPage() {
+export default function canteenPage() {
     return (
         <>
             <div className="p-5">
-                This is library Page.
+                This is canteen Page.
             </div>
         </>
     )
