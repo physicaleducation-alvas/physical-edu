@@ -29,36 +29,34 @@ export default function SchoolsHeader() {
 
   return (
     <>
-      {/* -----Notice Board----- */}
-      <section className="w-full mt-4 px-1 pb-6">
-        <div className="w-full bg-[#fdf1dc] py-1 md:py-3 shadow-sm">
-
-          {/* Left Red Box */}
-          <div className="bg-[#e3342f] rounded-3xl text-white px-4 py-3 content3 flex items-center gap-3 font-semibold text-lg">
-            Notice Board
-            <span className="text-white text-xl">📣</span>
-          </div>
-
-          {/* Scrolling Text */}
-          <Link href="/notice-board">
-            <div
-              ref={scrollRef}
-              className="flex-1 overflow-x-hidden rounded whitespace-nowrap text-red-600 text-base py-3 pl-6"
-            >
-              <span className="inline-block subtitle1">
-                CLICK HERE !!!! - AIET Alumni Association Registration 2025-26 •
-                New Updates Coming Soon
-              </span>
-            </div>
-          </Link>
+      {/* === BELOW ENQUIRY STRIP SECTION === */}
+      <section className=" w-full mt-3 px-1 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-15 w-full">
         </div>
-      </div>
-    </Link >
+        <div className="w-full bg-[#fdf1dc] py-3">
+          <div className="flex items-center w-full overflow-hidden">
 
-    </div >
-  </div >
-</section >
+            {/* Left Red Box */}
+            <div className="bg-[#e3342f] rounded-3xl text-white px-4 py-3 content3 flex items-center gap-3 font-semibold text-lg">
+              Notice Board
+              <span className="text-white text-xl">📣</span>
+            </div>
 
+            {/* Scrolling Text */}
+            <Link href="/notice-board">
+              <div
+                ref={scrollRef}
+                className="flex-1 overflow-x-hidden rounded whitespace-nowrap text-red-600 text-base py-3 pl-6"
+              >
+                <span className="inline-block subtitle1">
+                  CLICK HERE !!!! - AIET Alumni Association Registration 2025-26 •
+                  New Updates Coming Soon
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
       <FocusCardsDemo />
       <AchievementsCarousel />
       <CampusInsights />
