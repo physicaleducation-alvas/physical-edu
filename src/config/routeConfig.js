@@ -83,6 +83,11 @@ export const navRoutes = [
         name: 'Facilities',
         path: '/college/facilities',
         id: 'facilities',
+      },
+      {
+        name: 'Sports',
+        path: '/college/sports',
+        id: 'sports'
       }
     ]
   },

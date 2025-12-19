@@ -32,10 +32,10 @@ export default function Footer() {
                         <div className="flex-1">
                             <h3 className="text-xl font-bold mb-4">Campus</h3>
                             <ul className="space-y-2 text-sm">
-                                <li><a href="#" className="hover:text-gray-300">Alva's Celebrations</a></li>
-                                <li><a href="#" className="hover:text-gray-300">Education</a></li>
-                                <li><a href="#" className="hover:text-gray-300">Literature</a></li>
-                                <li><a href="#" className="hover:text-gray-300">Sports</a></li>
+                                <li><a href="/campus-life/celebrations" className="hover:text-gray-300">Celebrations</a></li>
+                                <li><a href="/footer/education" className="hover:text-gray-300">Education</a></li>
+                                <li><a href="/footer/literature" className="hover:text-gray-300">Literature</a></li>
+                                <li><a href="/footer/" className="hover:text-gray-300">Sports</a></li>
                             </ul>
                         </div>
 
@@ -44,12 +44,12 @@ export default function Footer() {
                             <h3 className="text-xl font-bold mb-4">Courses</h3>
                             <ul className="space-y-2 text-sm">
                                 <li>
-                                    <a href="#" className="hover:text-gray-300">
+                                    <a href="/college/courses/bped" className="hover:text-gray-300">
                                         B.P.Ed - Bachelor Of <br /> Physical Education
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" className="hover:text-gray-300">
+                                    <a href="/college/courses/mped" className="hover:text-gray-300">
                                         M.P.Ed - Master Of <br />Physical Education
                                     </a>
                                 </li>
