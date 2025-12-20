@@ -2,7 +2,7 @@
 "use client";
 import Image from "next/image";
 
-export default function SupportOrganizationsCarousel() {
+export default function TestimonialsCarousel() {
   const logos = [
     "/images/support1.png",
     "/images/support2.png",
@@ -19,9 +19,9 @@ export default function SupportOrganizationsCarousel() {
       {/* Title */}
       <div className="text-center mb-6">
         <h2 className="text-3xl font-bold title text-gray-900">
-          Support Organizations
+          Testimonials
         </h2>
-        <div className="mx-auto mt-2 w-45 h-2 bg-[#e4322f] rounded-full" />
+        <div className="mx-auto mt-2 w-20 h-2 bg-[#e4322f] rounded-full" />
       </div>
 
       {/* Continuous scrolling strip */}
@@ -35,7 +35,7 @@ export default function SupportOrganizationsCarousel() {
             >
               <Image
                 src={src}
-                alt={`Support organization ${i + 1}`}
+                alt={`Testimonials ${i + 1}`}
                 fill
                 className="object-contain content3"
               />
