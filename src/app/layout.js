@@ -86,7 +86,6 @@ export default function RootLayout({ children }) {
             {/* DESKTOP NAVIGATION - Hidden on mobile */}
             <nav
               className="hidden lg:flex items-center gap-8 text-lg text-gray-600"
-              onMouseLeave={() => setActiveMenu(null)}
             >
               {navRoutes.map((route) => {
                 const hasDropdown = Array.isArray(route.dropdown) && route.dropdown.length > 0;
@@ -100,10 +99,11 @@ export default function RootLayout({ children }) {
                     key={route.id}
                     className="relative"
                     onMouseEnter={() => hasDropdown && setActiveMenu(route.id)}
+                    onMouseLeave={() => setActiveMenu(null)}
                   >
                     <Link
                       href={route.path}
-                      className="flex items-center gap-1 hover:text-orange-600 whitespace-nowrap"
+                      className="flex items-center gap-1 hover:text-orange-600 whitespace-nowrap py-8 px-2"
                     >
                       {route.name}
                       {hasDropdown && (
@@ -114,19 +114,19 @@ export default function RootLayout({ children }) {
                       )}
                     </Link>
 
-                    {hasDropdown && (
-                      <div className="absolute left-0 top-full w-full h-3 pointer-events-none" />
-                    )}
-
                     <AnimatePresence>
                       {hasDropdown && activeMenu === route.id && (
                         <motion.div
                           initial={{ opacity: 0, scale: 0.85, y: 10 }}
                           animate={{ opacity: 1, scale: 1, y: 0 }}
-                          exit={{ opacity: 0, scale: 0.85, y: 10 }}
+                          exit={{ opacity: 0, scale: 0.85, y: 10, transition: { duration: 0.2 } }}
                           transition={transition}
-                          className={`absolute left-0 top-full mt-3 bg-white shadow-lg rounded-lg py-4 z-50 ${hasRichItems ? "min-w-[700px]" : normalItems.length > 5 ? "min-w-[460px]" : "min-w-[220px]"
+                          className={`absolute left-0 top-full bg-white shadow-lg rounded-lg py-4 z-50 ${hasRichItems ? "min-w-[700px]" : normalItems.length > 5 ? "min-w-[460px]" : "min-w-[220px]"
                             }`}
+                        // style={{ pointerEvents: 'auto' }}
+                        // onMouseLeave={(e) => {
+                        //   e.currentTarget.style.pointerEvents = 'none';
+                        // }}
                         >
                           {hasRichItems ? (
                             <div className="grid grid-cols-[220px_1fr] gap-6">
