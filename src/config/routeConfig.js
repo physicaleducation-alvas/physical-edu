@@ -76,7 +76,7 @@ export const navRoutes = [
       },
       {
         name: 'Infrastructure',
-        path: '/college/infrastructure',
+        path: '/college/infrastructure/atm',
         id: 'infrastructure',
       },
       {
