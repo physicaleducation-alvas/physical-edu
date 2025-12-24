@@ -60,7 +60,7 @@ export default function SchoolsHeader() {
       <FocusCardsDemo />
       <AchievementsCarousel />
       <CampusInsights />
-      <SupportOrganizationsCarousel />
+      <TestimonialsCarousel />
     </>
   );
 }
