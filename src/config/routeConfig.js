@@ -98,7 +98,7 @@ export const navRoutes = [
     dropdown: [
       {
         name: 'Affidavit',
-        path: '/mandatory-disclosures/affidavitA',
+        path: '/mandatory-disclosures/affidavit',
         id: 'affidavit',
       },
       {
