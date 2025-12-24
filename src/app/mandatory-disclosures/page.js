@@ -21,7 +21,7 @@ export default function MandatoryDisclosurePage() {
           Mandatory Disclosure
         </h1>
 
-        <SidebarButton label="Affidavit AAAAA" id="affidavitA" active={active} setActive={setActive} />
+        <SidebarButton label="Affidavit A" id="affidavitA" active={active} setActive={setActive} />
         <SidebarButton label="Affidavit B" id="affidavitB" active={active} setActive={setActive} />
         <SidebarButton label="Audit Report" id="audit" active={active} setActive={setActive} />
         <SidebarButton label="Balance Report" id="balance" active={active} setActive={setActive} />
@@ -43,7 +43,7 @@ export default function MandatoryDisclosurePage() {
           overflow-auto text-black
         "
       >
-        {active === "affidavitA" && <Content title="Affidavit A" link="/mandatory-disclosures/affidavitA" />}
+        {active === "affidavitA" && <Content title="Affidavit A" link="/mandatory-disclosures/affidavit" />}
         {active === "affidavitB" && <Content title="Affidavit B" link="/mandatory-disclosure/affidavitB" />}
         {active === "audit" && <Content title="Audit Report" link="/mandatory-disclosure/audit-report" />}
         {active === "balance" && <Content title="Balance Report" link="/mandatory-disclosure/balance-sheet" />}
