@@ -49,7 +49,7 @@ export default function TestimonialsCarousel() {
             >
               <Image
                 src={src}
-                alt={`Support organization ${i + 1}`}
+                alt={`Testimonials ${i + 1}`}
                 fill
                 className="object-contain content3"
               />
