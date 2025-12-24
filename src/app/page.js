@@ -4,14 +4,7 @@ import { useEffect, useRef } from "react";
 import CampusInsights from "@/components/campusInsights";
 import Link from "next/link";
 import AchievementsCarousel from "@/components/achievements";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 import TestimonialsCarousel from "@/components/testimonials";
->>>>>>> 4f7d8a3 (Update: Started and completed 75%  of college tab)
-=======
-import TestimonialsCarousel from "@/components/testimonials";
->>>>>>> main
 
 
 export default function SchoolsHeader() {
@@ -67,7 +60,7 @@ export default function SchoolsHeader() {
       <FocusCardsDemo />
       <AchievementsCarousel />
       <CampusInsights />
-      <TestimonialsCarousel />
+      <SupportOrganizationsCarousel />
     </>
   );
 }
